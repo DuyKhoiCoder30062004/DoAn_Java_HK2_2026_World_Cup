@@ -1,0 +1,216 @@
+-- KhachSan
+CREATE TABLE KhachSan (
+    khach_san_id INT IDENTITY(1,1) PRIMARY KEY,
+    ten NVARCHAR(100) NOT NULL,
+    dia_chi NVARCHAR(200) NOT NULL,
+    xep_hang_sao TINYINT,
+    dien_thoai VARCHAR(20) NOT NULL,
+    thoi_gian_xoa DATETIME,
+    thoi_gian_sua DATETIME,
+    thoi_gian_them DATETIME
+);
+
+-- LoaiPhong
+CREATE TABLE LoaiPhong (
+    loai_phong_id INT IDENTITY(1,1) PRIMARY KEY,
+    ten_loai NVARCHAR(50) NOT NULL,
+    suc_chua TINYINT NOT NULL,
+    tien_ich NVARCHAR(MAX),
+    thoi_gian_them DATETIME,
+    thoi_gian_xoa DATETIME,
+    thoi_gian_sua DATETIME
+);
+
+-- Phong
+CREATE TABLE Phong (
+    phong_id INT IDENTITY(1,1) PRIMARY KEY,
+    khach_san_id INT NOT NULL,
+    so_phong NVARCHAR(10) NOT NULL,
+    loai_phong_id INT NOT NULL,
+    tang TINYINT,
+    gia_mot_dem DECIMAL(10,2),
+    trang_thai NVARCHAR(20),
+    thoi_gian_them DATETIME,
+    thoi_gian_xoa DATETIME,
+    thoi_gian_sua DATETIME,
+    FOREIGN KEY (khach_san_id) REFERENCES KhachSan(khach_san_id),
+    FOREIGN KEY (loai_phong_id) REFERENCES LoaiPhong(loai_phong_id)
+);
+
+-- MoTaPhong
+CREATE TABLE MoTaPhong (
+    mo_ta_phong_id INT IDENTITY(1,1) PRIMARY KEY,
+    phong_id INT NOT NULL,
+    view NVARCHAR(255),
+    vi_tri NVARCHAR(255),
+    thoi_gian_them DATETIME,
+    thoi_gian_xoa DATETIME,
+    thoi_gian_sua DATETIME,
+    FOREIGN KEY (phong_id) REFERENCES Phong(phong_id)
+);
+
+-- KhachHang
+CREATE TABLE KhachHang (
+    khach_hang_id INT IDENTITY(1,1) PRIMARY KEY,
+    ho NVARCHAR(50) NOT NULL,
+    ten NVARCHAR(50) NOT NULL,
+    email NVARCHAR(100) NOT NULL,
+    dien_thoai NVARCHAR(20) NOT NULL,
+    quoc_tich NVARCHAR(50) NOT NULL,
+    ngay_sinh DATETIME,
+    thoi_gian_them DATETIME,
+    thoi_gian_xoa DATETIME,
+    thoi_gian_sua DATETIME
+);
+
+-- DatPhong
+CREATE TABLE DatPhong (
+    dat_phong_id INT IDENTITY(1,1) PRIMARY KEY,
+    khach_hang_id INT NOT NULL,
+    khach_san_id INT NOT NULL,
+    ngay_dat DATETIME,
+    ngay_nhan_phong DATETIME,
+    ngay_tra_phong DATETIME,
+    trang_thai NVARCHAR(20),
+    phong_id INT,
+    so_nguoi_o INT,
+    ho_va_ten_nguoi_dat NVARCHAR(255),
+    thoi_gian_huy DATETIME,
+    thoi_gian_sua DATETIME,
+    thoi_gian_xoa DATETIME,
+    FOREIGN KEY (khach_hang_id) REFERENCES KhachHang(khach_hang_id),
+    FOREIGN KEY (khach_san_id) REFERENCES KhachSan(khach_san_id),
+    FOREIGN KEY (phong_id) REFERENCES Phong(phong_id)
+);
+
+-- ChiTietDatPhong
+CREATE TABLE ChiTietDatPhong (
+    chi_tiet_dat_phong_id INT IDENTITY(1,1) PRIMARY KEY,
+    dat_phong_id INT NOT NULL,
+    phong_id INT NOT NULL,
+    gia DECIMAL(10,2),
+    trang_thai NVARCHAR(20),
+    FOREIGN KEY (dat_phong_id) REFERENCES DatPhong(dat_phong_id),
+    FOREIGN KEY (phong_id) REFERENCES Phong(phong_id)
+);
+
+-- TaiKhoan
+CREATE TABLE TaiKhoan (
+    tai_khoan_id INT IDENTITY(1,1) PRIMARY KEY,
+    ten_dang_nhap VARCHAR(255),
+    mat_khau VARCHAR(255),
+    email VARCHAR(255),
+    hinh_anh VARCHAR(255),
+    so_dt BIGINT,
+    admin BIT,
+    nhan_vien BIT,
+    khach_hang BIT,
+    da_xac_thuc BIT,
+    ngay_lap DATETIME,
+    ho_va_ten NVARCHAR(255)
+);
+
+-- ThanhToan_HoaDon
+CREATE TABLE ThanhToan_HoaDon (
+    thanh_toan_id INT IDENTITY(1,1) PRIMARY KEY,
+    hoa_don_id INT,
+    khach_hang_id INT NOT NULL,
+    ho_va_ten_nhap NVARCHAR(255),
+    dat_phong_id INT NOT NULL,
+    so_tien DECIMAL(10,2),
+    tong_tien DECIMAL(12,2),
+    ngay_thanh_toan DATETIME,
+    phuong_thuc NVARCHAR(50),
+    trang_thai NVARCHAR(20),
+    thue DECIMAL(6,2),
+    giam_gia DECIMAL(6,2),
+    ngay_lap DATETIME,
+    trang_thai_hoa_don NVARCHAR(20),
+    so_ngay_o INT,
+    khuyen_mai NVARCHAR(255),
+    FOREIGN KEY (dat_phong_id) REFERENCES DatPhong(dat_phong_id),
+    FOREIGN KEY (khach_hang_id) REFERENCES KhachHang(khach_hang_id),
+    FOREIGN KEY (ho_va_ten_nhap) REFERENCES TaiKhoan(ho_va_ten)
+);
+
+-- VaiTro
+CREATE TABLE VaiTro (
+    vai_tro_id INT IDENTITY(1,1) PRIMARY KEY,
+    ten_vai_tro NVARCHAR(50) NOT NULL
+);
+
+-- NhanVien
+CREATE TABLE NhanVien (
+    nhan_vien_id INT IDENTITY(1,1) PRIMARY KEY,
+    khach_san_id INT NOT NULL,
+    vai_tro_id INT NOT NULL,
+    ho NVARCHAR(50) NOT NULL,
+    ten NVARCHAR(50) NOT NULL,
+    email NVARCHAR(100),
+    dien_thoai NVARCHAR(20),
+    ngay_vao_lam DATETIME,
+    luong DECIMAL(12,2),
+    FOREIGN KEY (khach_san_id) REFERENCES KhachSan(khach_san_id),
+    FOREIGN KEY (vai_tro_id) REFERENCES VaiTro(vai_tro_id)
+);
+
+-- DichVu
+CREATE TABLE DichVu (
+    dich_vu_id INT IDENTITY(1,1) PRIMARY KEY,
+    khach_san_id INT NOT NULL,
+    ten_dich_vu NVARCHAR(100) NOT NULL,
+    mo_ta NVARCHAR(MAX),
+    gia DECIMAL(10,2),
+    FOREIGN KEY (khach_san_id) REFERENCES KhachSan(khach_san_id)
+);
+
+-- SuDungDichVu
+CREATE TABLE SuDungDichVu (
+    su_dung_dich_vu_id INT IDENTITY(1,1) PRIMARY KEY,
+    dat_phong_id INT NOT NULL,
+    dich_vu_id INT NOT NULL,
+    so_luong INT,
+    tong_tien DECIMAL(10,2),
+    FOREIGN KEY (dat_phong_id) REFERENCES DatPhong(dat_phong_id),
+    FOREIGN KEY (dich_vu_id) REFERENCES DichVu(dich_vu_id)
+);
+
+-- DonDepPhong
+CREATE TABLE DonDepPhong (
+    don_dep_id INT IDENTITY(1,1) PRIMARY KEY,
+    phong_id INT NOT NULL,
+    nhan_vien_id INT NOT NULL,
+    ngay DATETIME,
+    trang_thai NVARCHAR(20),
+    FOREIGN KEY (phong_id) REFERENCES Phong(phong_id),
+    FOREIGN KEY (nhan_vien_id) REFERENCES NhanVien(nhan_vien_id)
+);
+
+-- DanhGia
+CREATE TABLE DanhGia (
+    danh_gia_id INT IDENTITY(1,1) PRIMARY KEY,
+    khach_hang_id INT NOT NULL,
+    khach_san_id INT NOT NULL,
+    so_sao TINYINT,
+    noi_dung NVARCHAR(MAX),
+    ngay DATETIME,
+    FOREIGN KEY (khach_hang_id) REFERENCES KhachHang(khach_hang_id),
+    FOREIGN KEY (khach_san_id) REFERENCES KhachSan(khach_san_id)
+);
+
+-- KhoVatTu
+CREATE TABLE KhoVatTu (
+    kho_vat_tu_id INT IDENTITY(1,1) PRIMARY KEY,
+    khach_san_id INT NOT NULL,
+    ten_vat_tu NVARCHAR(100) NOT NULL,
+    so_luong INT,
+    don_vi NVARCHAR(20),
+    cap_nhat_lan_cuoi DATETIME,
+    FOREIGN KEY (khach_san_id) REFERENCES KhachSan(khach_san_id)
+);
+
+-- ChiTietPhong
+CREATE TABLE ChiTietPhong (
+    chi_tiet_id INT IDENTITY(1,1) PRIMARY KEY,
+    so_nguoi_trong_phong INT NOT NULL
+);
