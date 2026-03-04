@@ -41,7 +41,7 @@ CREATE TABLE Phong (
 CREATE TABLE MoTaPhong (
     mo_ta_phong_id INT IDENTITY(1,1) PRIMARY KEY,
     phong_id INT NOT NULL,
-    view NVARCHAR(255),
+    phong_canh NVARCHAR(255),
     vi_tri NVARCHAR(255),
     thoi_gian_them DATETIME,
     thoi_gian_xoa DATETIME,
