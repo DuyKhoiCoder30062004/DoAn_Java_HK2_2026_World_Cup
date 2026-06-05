@@ -1,14 +1,9 @@
 
----
 
-## 📄 README.md cho Hotel Management Desktop Application
-```markdown
 # Hotel Management Desktop Application
 
 A desktop application for managing hotel operations.  
 This project was developed as an academic assignment to practice **Fullstack Development** with **Java** and **Java Swing**.
-
----
 
 ## 📌 Project Information
 - **Team size:** 4  
