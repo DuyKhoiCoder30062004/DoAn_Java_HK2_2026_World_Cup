@@ -43,10 +43,26 @@ It follows a UML-driven design and implements a **Three-layer Architecture**.
 4. Compile and run the Main.java file.
 
 ## 📌 Screenshots
+
+## Quyền Admin
 <div align="center">
 <img src="./docs/admin_Dash.png" width="70%" />
 <img src="./docs/admin_inventory.png" width="70%" />
 <img src="./docs/admin_nv.png" width="70%" />   
+</div>
+
+## Quyền Nhân viên
+<div align="center">
+<img src="./docs/nhanvien_Dash.png" width="70%" />
+<img src="./docs/nhanvien_booking.png" width="70%" />
+<img src="./docs/nhanvien_room.png" width="70%" />   
+</div>
+
+## Quyền Khách hàng
+<div align="center">
+<img src="./docs/khachhang_Dash.png" width="70%" />
+<img src="./docs/khachhang_review.png" width="70%" />
+<img src="./docs/khachhang_service.png" width="70%" />   
 </div>
 
 ## 📌 Contribution
