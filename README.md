@@ -20,7 +20,8 @@ It follows a UML-driven design and implements a **Three-layer Architecture**.
 ## 📌 Features
 - <mark>Authentication</mark>  
 - <mark>Admin Dashboard</mark> for managing rooms and customers  
-- <mark>Booking Management</mark>  
+- <mark>Room Booking Management</mark>
+- <mark>Customer Management</mark>
 - <mark>Statistics</mark> and reporting  
 
 ---
