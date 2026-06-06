@@ -44,7 +44,9 @@ It follows a UML-driven design and implements a **Three-layer Architecture**.
 
 ## 📌 Screenshots
 <div align="center">
-<img src="./docs/hotel-management.png" width="70%" />
+<img src="./docs/admin_Dash.png" width="70%" />
+<img src="./docs/admin_inventory.png" width="70%" />
+<img src="./docs/admin_nv.png" width="70%" />   
 </div>
 
 ## 📌 Contribution
