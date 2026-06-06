@@ -1,5 +1,3 @@
-
-
 # Hotel Management Desktop Application
 
 A desktop application for managing hotel operations.  
