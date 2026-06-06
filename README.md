@@ -38,7 +38,7 @@ It follows a UML-driven design and implements a **Three-layer Architecture**.
 1. Clone the repository:
    ```bash
    git clone https://github.com/DuyKhoiCoder30062004/DoAn_Java_HK2_2026_World_Cup.git
-2. Open the project in IntelliJ IDEA or Eclipse.
+2. Open the project in Netbeans or IntelliJ IDEA.
 3. Configure the SQL Server connection string.
 4. Compile and run the Main.java file.
 
