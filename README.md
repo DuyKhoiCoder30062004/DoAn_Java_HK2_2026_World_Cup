@@ -27,7 +27,7 @@ It follows a UML-driven design and implements a **Three-layer Architecture**.
 ---
 
 ## 📌 System Design
-- Designed <mark>UML Class Diagram</mark> to model system entities and dependencies  
+- Designed <mark>ERD Diagram</mark> to model system entities and dependencies  
 - Implemented <mark>Three-layer Architecture</mark>  
 - Database schema in <mark>Microsoft SQL Server</mark>  
 
