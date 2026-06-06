@@ -20,15 +20,16 @@ Hệ thống được thiết kế để quản lý các hoạt động khách s
 ---
 
 ## 📌 Tính năng
-- <mark>Xác thực</mark>  
-- <mark>Bảng điều khiển Admin</mark> để quản lý phòng và khách hàng  
-- <mark>Quản lý đặt phòng</mark>  
-- <mark>Thống kê</mark> và báo cáo  
-
+- <mark>Xác thực</mark> (đăng nhập/đăng ký)
+- <mark>Kiểm soát truy cập theo vai trò</mark> (Quản trị viên, Nhân viên, Khách hàng)
+- <mark>Bảng điều khiển Quản trị viên</mark> để quản lý phòng, nhân viên và khách hàng
+- <mark>Bảng điều khiển Nhân viên</mark> để quản lý phòng và hệ thống
+- <mark>Thống kê</mark> và báo cáo
+- <mark>Bảng điều khiển Khách hàng</mark> để đặt phòng, gửi phản hồi 
 ---
 
 ## 📌 Thiết kế Hệ thống
-- Thiết kế <mark>Sơ đồ lớp UML</mark> để mô hình hóa các thực thể và quan hệ trong hệ thống  
+- Thiết kế <mark>Sơ đồ ERD</mark> để mô hình hóa các thực thể và quan hệ trong hệ thống  
 - Triển khai <mark>Kiến trúc 3 lớp</mark>  
 - Cơ sở dữ liệu xây dựng trên <mark>Microsoft SQL Server</mark>  
 
